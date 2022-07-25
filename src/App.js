@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React - Hi There, How Are You? good?
+          Learn React - Hi There, using Git Actions!
         </a>
       </header>
     </div>
