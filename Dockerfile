@@ -1,0 +1,14 @@
+#Phase 1 - Build Phase for Production
+FROM node:16-alpine as Builder
+WORKDIR '/app'
+COPY package.json .
+RUN npm install
+COPY . .
+RUN npm run build
+
+#Phase 2 - run nginx
+FROM nginx
+#expose port 80 on deploy - AWS Beanstalk
+EXPOSE 80
+#copying content to the folder nginx shares static content from
+COPY --from=builder /app/build /usr/share/nginx/html
