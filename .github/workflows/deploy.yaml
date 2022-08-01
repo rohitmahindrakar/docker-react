@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: docker login -u rohitmahindrakar@gmail.com -p Learn@2022
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       #- run: docker build -f docker.dev -t rmahindrakar:frontend .
       #- run: docker run -e CI=true rmahindrakar:frontend npm test
       - run: docker build -t cygnetops/react-test -f docker.dev .
